@@ -1,5 +1,9 @@
 ---
 import { Font } from "astro:assets";
+import icon from '../assets/icons/social-icon.png';
+const { 
+	description = "A weekly meetup for teen makers, coders, and artists to build awesome stuff, learn new skills, and make new friends."
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -8,8 +12,13 @@ import { Font } from "astro:assets";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
 		<title>Hamilton City Hack Club</title>
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="og:title" content="Hamilton City Hack Club" />
+		<meta name="og:description" content={description} />
+		<meta name="og:image" content="https://hackwaikato.org/social-icon.png" />
+		<meta name="twitter:card" content="summary">
 		<Font cssVariable="--font-phantom-sans" />
 	</head>
 	<body>
