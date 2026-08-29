@@ -1,62 +1,75 @@
 ---
-import Logo from '../components/Logo.astro';
-import Signup from '../components/Signup.astro';
-import Layout from '../layouts/Layout.astro';
-import Instagram from '../assets/icons/instagram.svg';
-import Email from '../assets/icons/email.svg';
+import Logo from "../components/Logo.astro";
+import Signup from "../components/Signup.astro";
+import Layout from "../layouts/Layout.astro";
+import Instagram from "../assets/icons/instagram.svg";
+import Email from "../assets/icons/email.svg";
 ---
 
 <Layout>
-	<Logo />
-	<div class="yap">
-		<Signup />
-		<p>We're running a weekly meetup for teen makers, coders, and artists to build cool stuff, learn new skills, and make new friends.<br>Every Saturday 1:30-3:30 @ Hamilton Central Library. First meeting Saturday 12th Sept.</p>
-		<div class="links">
-			<a href="https://instagram.com/hackwaikato" aria-label="Instagram page" target="_blank"><Instagram /></a>
-			<a href="mailto:club@hackwaikato.org" aria-label="Email us!" target="_blank"><Email /></a>
-		</div>
-	</div>
+  <Logo />
+  <div class="yap">
+    <Signup />
+    <p>
+      We're running a weekly meetup for teen makers, coders, and artists to
+      build cool stuff, learn new skills, and make new friends.<br />Every
+      Saturday 1:30-3:30 @ Hamilton Central Library. First meeting Saturday 12th
+      Sept.
+    </p>
+    <div class="links">
+      <a
+        href="https://instagram.com/hackwaikato"
+        aria-label="Instagram page"
+        target="_blank"><Instagram /></a
+      >
+      <a
+        href="mailto:club@hackwaikato.org"
+        aria-label="Email us!"
+        target="_blank"><Email /></a
+      >
+    </div>
+  </div>
 </Layout>
 
 <style is:global>
-	p {
-		background-color: white;
-		box-shadow: 3px 3px rgba(0, 0, 0, 0.293);
-		padding: .5rem;
+  p {
+    background-color: white;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.293);
+    padding: 0.5rem;
 
-		text-align: justify;
-		text-align-last: center;
+    text-align: justify;
+    text-align-last: center;
 
-		box-sizing: border-box;
-	}
+    box-sizing: border-box;
+  }
 
-	.yap {
-		max-width: 25em;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+  .yap {
+    max-width: 25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-	.yap > * {
-		width: 100%;
-	}
+  .yap > * {
+    width: 100%;
+  }
 
-	.links {
-		display: flex;
-		justify-content: center;
-	}
+  .links {
+    display: flex;
+    justify-content: center;
+  }
 
-	.links a {
-        display: block;
-        width: fit-content;
-    }
+  .links a {
+    display: block;
+    width: fit-content;
+  }
 
-    .links a:hover {
-        background: radial-gradient(circle at top left, #ff8c37, #ec3750);
-        border-radius: 4px;
-    }
+  .links a:hover {
+    background: radial-gradient(circle at top left, #ff8c37, #ec3750);
+    border-radius: 4px;
+  }
 
-    .links a:hover * {
-        fill: white;
-    }
+  .links a:hover * {
+    fill: white;
+  }
 </style>
