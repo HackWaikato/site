@@ -20,6 +20,7 @@ const {
     <meta name="og:description" content={description} />
     <meta name="og:image" content="https://hackwaikato.org/social-icon.png" />
     <meta name="twitter:card" content="summary" />
+    <slot name="head" />
     {
       import.meta.env.PROD && (
         <script

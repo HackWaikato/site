@@ -49,3 +49,11 @@
     transform: scale(1.1);
   }
 </style>
+
+<script>
+  if (import.meta.env.PROD) {
+    document
+      .getElementById("signup")!
+      .addEventListener("submit", (e) => window.umami?.track("signup-form"));
+  }
+</script>

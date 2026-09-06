@@ -4,9 +4,16 @@ import Signup from "../components/Signup.astro";
 import Layout from "../layouts/Layout.astro";
 import Instagram from "../assets/icons/instagram.svg";
 import Email from "../assets/icons/email.svg";
+import Boba from "../components/Boba.astro";
+
+/* Preload boba popup background (hack) */
+import background from "../assets/images/tile.png";
+import { getImage } from "astro:assets";
+let bgSrc = (await getImage({ src: background })).src;
 ---
 
 <Layout>
+  <link slot="head" rel="preload" href={bgSrc} as="image" />
   <Logo />
   <div class="yap">
     <Signup />
@@ -29,9 +36,10 @@ import Email from "../assets/icons/email.svg";
       >
     </div>
   </div>
+  <Boba />
 </Layout>
 
-<style is:global>
+<style>
   p {
     background-color: white;
     box-shadow: 3px 3px rgba(0, 0, 0, 0.293);
@@ -50,7 +58,7 @@ import Email from "../assets/icons/email.svg";
     align-items: center;
   }
 
-  .yap > * {
+  .yap > :global(*) {
     width: 100%;
   }
 
