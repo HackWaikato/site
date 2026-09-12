@@ -4,7 +4,7 @@ import Signup from "../components/Signup.astro";
 import Layout from "../layouts/Layout.astro";
 import Instagram from "../assets/icons/instagram.svg";
 import Email from "../assets/icons/email.svg";
-import Boba from "../components/Boba.astro";
+import Slack from "../assets/icons/slack.svg";
 
 /* Preload boba popup background (hack) */
 import background from "../assets/images/tile.png";
@@ -20,8 +20,7 @@ let bgSrc = (await getImage({ src: background })).src;
     <p>
       We're running a weekly meetup for teen makers, coders, and artists to
       build cool stuff, learn new skills, and make new friends.<br />Every
-      Saturday 1:30-3:30 @ Hamilton Central Library. First meeting Saturday 12th
-      Sept.
+      Saturday 1:30-3:30 @ Hamilton Central Library.
     </p>
     <div class="links">
       <a
@@ -42,7 +41,6 @@ let bgSrc = (await getImage({ src: background })).src;
       >
     </div>
   </div>
-  <Boba />
 </Layout>
 
 <style>
