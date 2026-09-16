@@ -5,15 +5,9 @@ import Layout from "../layouts/Layout.astro";
 import Instagram from "../assets/icons/instagram.svg";
 import Email from "../assets/icons/email.svg";
 import Slack from "../assets/icons/slack.svg";
-
-/* Preload boba popup background (hack) */
-import background from "../assets/images/tile.png";
-import { getImage } from "astro:assets";
-let bgSrc = (await getImage({ src: background })).src;
 ---
 
 <Layout>
-  <link slot="head" rel="preload" href={bgSrc} as="image" />
   <Logo />
   <div class="yap">
     <Signup />
