@@ -1,4 +1,5 @@
 # hackwaikato.org
+
 This is the code for the Hamilton City Hack Club website, which is built using [Astro](https://astro.dev) and available at [hackwaikato.org](https://hackwaikato.org).
 
 ## Project Structure
@@ -34,4 +35,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-

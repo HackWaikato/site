@@ -13,9 +13,10 @@ import Slack from "../assets/icons/slack.svg";
     <Signup />
     <p>
       We're running a weekly meetup for teen makers, coders, and artists to
-      build cool stuff, learn new skills, and make new friends.<br />Every
-      Saturday 1:30-3:30 @ Hamilton Central Library.
+      build cool stuff, learn new skills, and make new friends.<br />
+      Saturdays 1:30-3:30 @ Hamilton Central Library.
     </p>
+    <a href="/gallery">Check out what we're building →</a>
     <div class="links">
       <a
         href="https://instagram.com/hackwaikato"
@@ -49,11 +50,20 @@ import Slack from "../assets/icons/slack.svg";
     box-sizing: border-box;
   }
 
+  a {
+    color: #ec3750;
+    font-weight: bold;
+    text-align: center;
+    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: none;
+  }
+
   .yap {
     max-width: 25em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 4px;
   }
 
   .yap > :global(*) {

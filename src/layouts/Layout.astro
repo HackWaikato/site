@@ -1,55 +1,17 @@
 ---
-import { Font } from "astro:assets";
-import icon from "../assets/icons/social-icon.png";
+import Base from "./Base.astro";
 const {
   description = "A weekly meetup for teen makers, coders, and artists to build awesome stuff, learn new skills, and make new friends.",
 } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <title>Hamilton City Hack Club</title>
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <meta name="og:title" content="Hamilton City Hack Club" />
-    <meta name="og:description" content={description} />
-    <meta name="og:image" content="https://hackwaikato.org/social-icon.png" />
-    <meta name="twitter:card" content="summary" />
-    <slot name="head" />
-    {
-      import.meta.env.PROD && (
-        <script
-          defer
-          src="https://stats.logabe.net/script.js"
-          data-website-id="21ba83dc-8204-4abc-8b5c-6883c6dc33d0"
-        />
-      )
-    }
-
-    <Font cssVariable="--font-phantom-sans" />
-  </head>
-  <body>
-    <main>
-      <slot />
-    </main>
-  </body>
-</html>
+<Base>
+  <main>
+    <slot />
+  </main>
+</Base>
 
 <style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    font-family: var(--font-phantom-sans);
-    font-size: 16px;
-  }
-
   body {
     display: grid;
     place-items: center;
