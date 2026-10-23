@@ -1,8 +1,11 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://hackwaikato.org',
   fonts: [
     {
       provider: fontProviders.local(),
@@ -24,4 +27,9 @@ export default defineConfig({
       },
     },
   ],
+
+  integrations: [sitemap({
+    filter: (page) =>
+      page !== 'https://hackwaikato.org/members/'
+  })],
 });

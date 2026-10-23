@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /members
+
+Sitemap: https://hackwaikato.org/sitemap-index.xml
