@@ -2,192 +2,237 @@
 import Base from "../layouts/Base.astro";
 import Website from "../components/gallery/Website.astro";
 import Signup from "../components/Signup.astro";
-import background from "../assets/images/tile.png";
-import { getImage } from "astro:assets";
+import Websites from "../assets/images/websites.png";
 import Boba from "../assets/images/bobadrops.png";
 import { Image } from "astro:assets";
+const sites = {
+  "toya" : {
+    name: "toya's cute website",
+    href: "https://logabe.github.io/boba-drops/"
+  },
+  "explodenow": {
+    name: "explode NOW!!!",
+    href: "https://yuhqnn.github.io/Explosion-NOW/"
+  }
+}
 
-let bgSrc = (await getImage({ src: background })).src;
+const bobasites = {
+  "matchan" : {
+    name: "Tea Wonderhoy Project",
+    href: "https://youknowmatchan.github.io/teawonderhoy/"
+  },
+  "stupidfrickenwebsite" : {
+    name: "the great WEBSITE :3",
+    href: "https://yuhqnn.github.io/yippie/index.html"
+  },
+  "ratboy" : {
+    name: "Ratboy Genius Fanpage",
+    href: "https://imaroboticanthelpit.github.io/boba-drops/"
+  },
+  "firstwebsite" : {
+    name: "first website kinda nervous",
+    href: "https://rqtome.github.io/firstwebsitekindanervous/"
+  },
+  "speed" : {
+    name: "I show speed gifs",
+    href: "https://lordluke7621.github.io/Rng-Heaven/"
+  },
+  "movies" : {
+    name: "Movie and series review website!",
+    href: "https://meowmeowmoemww.github.io/meows/"
+  },
+  "exploding" : {
+    name: "exploding",
+    href: "https://rowanross417-cmyk.github.io/MEOWMEOWMEOWMEOW/"
+  },
+  "pie" : {
+    name: "What do you need for apple pie?",
+    href: "https://emmadilemma24.github.io/boba-drops2/"
+  },
+  "bobadrops" : {
+    name: "dont boba drops",
+    href: "https://timdtam.github.io/boba-drops/"
+  },
+  "portfolio" : {
+    name: "My totally awesome art portfolio",
+    href: "https://cofii-time.github.io/Boba_Drops_/"
+  },
+  "cool" : {
+    name: "cool",
+    href: "https://jacobiscoool.github.io/cool/"
+  },
+  "epic" : {
+    name: "epic site",
+    href: "https://imaroboticanthelpit-me.github.io/boba-drops/neighbor.html"
+  },
+  "animals" : {
+    name: "Animals!",
+    href: "https://bookworm-png.github.io/Boba-Drops/"
+  },
+}
 ---
 
 <Base title="Gallery" description="Come see what our members are building">
-  <a id="back" href="/">Back to home</a>
-  <div
-    id="boba-drops"
-    style={`background: linear-gradient(transparent 70%, #0002), url(${bgSrc})`}
-  >
+  <slot name="header"><link rel="stylesheet" href="https://unpkg.com/7.css/dist/gui/window.css"></slot>
+  <a id="back" href="/">← Back to home</a>
+  <div id="websites">
+    <Image src={Websites} alt="Websites" />
+    <!-- Turn the JavaScript object into Astro components -->
+    {Object.entries(sites).map(([k,v]) => (
+      <Website {...v} id={k}></Website>
+    ))}
+    <hr>
     <div id="yap">
       <Image src={Boba} alt="Boba Drops" />
       <p>
-        For our first ever event, we ran a website-making workshop with a sweet
-        twist! 14 students learned the basics of HTML and CSS, made their own
-        unique websites, and put them online in just 2 hours. There were some
-        incredible sites made despite half the attendees having never coded
-        before. Afterwards we all celebrated our success with free bubble tea :D
+        At our first meeting, we ran a website-making workshop with a sweet
+        twist! 14 students used HTML and CSS to make their own unique websites
+        and put them online in just 2 hours. There were some incredible sites
+        made despite half the attendees having never coded before.
+        Afterwards we all celebrated our success with free bubble tea :D
       </p>
-      <div id="cta">
-        Want to know when we next do something like this? Sign up to get
-        reminders!
-        <Signup />
+    </div>
+    <div class="window">
+
+      <div class="title-bar">
+        <div class="title-bar-text">Websites</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        {Object.entries(bobasites).map(([k,v]) => (
+          <Website {...v} id={k}></Website>
+        ))}
       </div>
     </div>
-    <div class="grid">
-      <Website
-        name="toya's cute website"
-        href="https://logabe.github.io/boba-drops/"
-        id="toya"
-      />
-      <Website
-        name="Tea Wonderhoy Project"
-        href="https://youknowmatchan.github.io/teawonderhoy/"
-        id="matchan"
-      />
-      <Website
-        name="exploding"
-        href="https://rowanross417-cmyk.github.io/MEOWMEOWMEOWMEOW/"
-        id="exploding"
-      />
-      <Website
-        name="first website kinda nervous"
-        href="https://rqtome.github.io/firstwebsitekindanervous/"
-        id="firstwebsite"
-      />
-      <Website
-        name="I show speed gifs"
-        href="https://lordluke7621.github.io/Rng-Heaven/"
-        id="speed"
-      />
-      <Website
-        name="Movie and series review website!"
-        href="https://meowmeowmoemww.github.io/meows/"
-        id="movies"
-      />
-      <Website
-        name="What do you need for apple pie?"
-        href="https://emmadilemma24.github.io/boba-drops2/"
-        id="pie"
-      />
-      <Website
-        name="dont boba drops"
-        href="https://timdtam.github.io/boba-drops/"
-        id="bobadrops"
-      />
-      <Website
-        name="My totally awesome art portfolio"
-        href="https://cofii-time.github.io/Boba_Drops_/"
-        id="portfolio"
-      />
-      <Website
-        name="cool"
-        href="https://jacobiscoool.github.io/cool/"
-        id="cool"
-      />
-      <Website
-        name="epic site"
-        href="https://imaroboticanthelpit-me.github.io/boba-drops/neighbor.html"
-        id="epic"
-      />
-      <Website
-        name="Ratboy Genius Fanpage"
-        href="https://imaroboticanthelpit.github.io/boba-drops/"
-        id="ratboy"
-      />
-      <Website
-        name="Animals!"
-        href="https://bookworm-png.github.io/Boba-Drops/"
-        id="animals"
-      />
-      <Website
-        name="the great WEBSITE :3"
-        href="https://yuhqnn.github.io/yippie/index.html"
-        id="stupidfrickenwebsite"
-      />
-    </div>
   </div>
+  <div id="cta">
+    Want to know when we next do something like this? Sign up to get
+    reminders!
+    <Signup />
+  </div>
+  <a id="back" href="/">← Back to home</a>
 </Base>
 
 <style>
-  #boba-drops {
-    padding: 1em;
-    min-height: 100vh;
+  * {
     box-sizing: border-box;
   }
-
-  #yap > img {
-    max-width: 90%;
-    height: auto;
+  #back {
+    color: #ec3750;
+    font-weight: 600;
+    padding: 1rem;
   }
-
-  #boba-drops {
+  
+  #websites {
+    --pink1: #f6dade;
+    padding: 1em;
+    min-height: 60vh;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 1em;
     align-items: center;
+
+    background-size: 90px 90px;
+    background-image: linear-gradient(to bottom right, var(--pink1) 32px, transparent 32px),
+                      linear-gradient(to bottom left, var(--pink1) 32px, transparent 32px),
+                      linear-gradient(to top right, var(--pink1) 32px, transparent 32px),
+                      linear-gradient(to top left, var(--pink1) 32px, transparent 32px);
+    background-color: #f2c8cd;
+
+    > * {
+
+    width: 80%;
+    }
+
+    > img {
+      width: auto;
+    }
+
+    p{
+      background-color: white;
+      box-shadow: 3px 3px rgba(0, 0, 0, 0.293);
+      padding: 0.5rem;
+
+      text-align: justify;
+
+      box-sizing: border-box;
+    }
+
+    p::before {
+      content: "<p> ";
+    }
+
+    p::after {
+      content: " </p>";
+    }
+
+    p::before,
+    p::after {
+      color: grey;
+      display: inline-block;
+    }
+
+    hr {
+      border-top: 2px solid black;
+      width: 100%;
+      border-style: ridge;
+    }
   }
 
   #yap {
     width: 80%;
-  }
 
-  @media (min-width: 100rem) {
-    #boba-drops {
-      padding: 1em 2em;
-      flex-direction: row;
-    }
-
-    #yap {
-      width: 40%;
-    }
-  }
-
-  @media (max-width: 100rem) {
-    #yap > img {
-      margin-top: 3rem;
+    img {
+      max-width: 100%;
+      height: auto;
     }
   }
 
   #cta {
+    padding: 1rem;
     max-width: fit-content;
     margin: auto;
   }
 
-  a {
-    position: absolute;
-    top: 1em;
-    left: 1em;
+  .window {
+    position: relative;
+    width: 80%;
   }
 
-  p,
-  a {
-    background-color: white;
-    box-shadow: 3px 3px rgba(0, 0, 0, 0.293);
-    padding: 0.5rem;
-
-    text-align: justify;
-
-    box-sizing: border-box;
-  }
-
-  p::before {
-    content: "<p> ";
-  }
-
-  p::after {
-    content: " </p>";
-  }
-
-  p::before,
-  p::after {
-    color: grey;
-  }
-
-  .grid {
-    flex: 1;
-    height: min-content;
+  .window-body {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
+    overflow: scroll;
+    gap: .5em;
+    padding: .5rem;
+  }
+
+  @media (max-width: 80rem) {
+    #yap, .window {
+      width: 90%;
+    }
+    .window-body {
+      flex-wrap: wrap;
+      max-height: 75vh;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 100rem) {
+    #yap {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 2em;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+    }
   }
 </style>
