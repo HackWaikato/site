@@ -1,22 +1,25 @@
 # hackwaikato.org
 
-This is the code for the Hamilton City Hack Club website, which is built using [Astro](https://astro.dev) and available at [hackwaikato.org](https://hackwaikato.org).
+This is the code for the Hamilton City Hack Club website, which is built using [Astro](https://astro.dev) and available at [hackwaikato.org](https://hackwaikato.org). 3D models on the gallery page are made using [Three.js](https://threejs.org/). Pull requests or other contributions welcome!
 
 ## Project Structure
 
 ```text
 /
-├── public/
-│   ├──
+├── public/ <- Files that need a known location
+|   ├── robots.txt
 │   └── favicon.svg
 ├── src
-│   ├── assets
-│   │   └── Fonts, Images, Icons, etc
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
+│   ├── assets <- Asset files that can be compressed
+│   │   └── Fonts, Images, etc
+│   ├── components <- Reusable HTML components
+│   │   └── Signup.astro
+│   ├── layouts <- Page layouts
+│   |   ├── Base.astro <- Layout all pages use (has useful metadata)
+│   │   └── Layout.astro <- Layout for index page.
+│   └── pages <- Files that need a known location
+|       ├── gallery.astro
+|       ├── members.astro
 │       └── index.astro
 └── package.json
 ```
@@ -25,7 +28,7 @@ To learn more about the folder structure of an Astro project, refer to [the guid
 
 ## Dev Commands
 
-All commands are run from the root of the project, from a terminal:
+You will need [NodeJS](https://nodejs.org/en/download) to run these! All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
