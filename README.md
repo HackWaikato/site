@@ -2,6 +2,8 @@
 
 This is the code for the Hamilton City Hack Club website, which is built using [Astro](https://astro.dev) and available at [hackwaikato.org](https://hackwaikato.org). 3D models on the gallery page are made using [Three.js](https://threejs.org/). Pull requests or other contributions welcome!
 
+![Screenshot of the gallery page](docs/Screenshot_20261116_212414.png)
+
 ## Project Structure
 
 ```text
