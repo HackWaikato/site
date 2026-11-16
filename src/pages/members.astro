@@ -1,0 +1,64 @@
+---
+import Base from "../layouts/Base.astro";
+import memberzone from "../assets/images/memberzone.gif"
+import Image from "astro/components/Image.astro";
+---
+
+<Base title="member zone">
+    <slot name="head"><meta name="robots" content="noindex"></slot>
+    <a id="back" href="/">Back to Index</a>
+    <h1>
+        <Image src={memberzone} alt="Cool Kid Zone" priority />
+    </h1>
+    <div class="cols">
+        <section>
+            <h2>Club Links:</h2>
+            <ul>
+                <li><a href="https://hackwaikato.fillout.com/demos">Submit a link for demos</a></li>
+                <li><a href="https://clubs.hackclub.com/">Club Platform</a> (<a href="https://clubs.hackclub.com/auth/member?join=VTXJNP">Click here to sign up</a>)</li>
+                <li><a href="https://hackclub.enterprise.slack.com/archives/C0C12D1LP8R">Come yap on our Hack Club Slack channel</a><br>Joining and navigating the Slack can be a bit confusing at first - feel free to ask for help!</li>
+                <li><a href="https://music.youtube.com/playlist?list=PLa0OzajlvMQI&jct=m49zoYU4Js2VWwSdE2ubzA">Adds songs to the group playlist</a></li>
+                <li><a href="https://hackwaikato.fillout.com/feedback">Feedback form</a></li>
+                <li><a href="https://github.com/hackwaikato/site">The code for this website!!</a></li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Useful resouces:</h2>
+            <ul>
+                <li>Bakebuild guides: <a href="https://user-cdn.hackclub-assets.com/019ee9f0-4584-7836-a0b9-316d40a5b0da/bakebuildguidev4.pdf">Slideshow</a> + <a href="bakebuild.hackclub.com/guide">Written</a></li>
+                <li><a href="https://www.youtube.com/watch?v=d4QzBdcQoe0">Onshape video tutorial</a></li>
+            </ul>
+            <ul>
+                <li><a href="https://www.canva.com/design/DAGr1zQLfE4/5fSKK2lT977z1GXgUmjwsg/view">Personal website guide</a> (or this <a href="https://workshops.hackclub.com/personal_website/">written version</a>)</li>
+                <li>Useful web development resources: <a href="https://developer.mozilla.org/en-US/docs/Web">MDN</a> and <a href="https://w3schools.com">W3Schools</a></li>
+            </ul>
+            <ul>
+                <li>Hack Club <a href="https://workshops.hackclub.com/">Workshops</a> and <a href="https://jams.hackclub.com/">Jams</a></li>
+                <li><a href="https://hackclub.com/programs">All Hack Club Programs</a></li>
+            </ul>
+        </section>
+    </div>
+</Base>
+
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .cols {
+        display: flex;
+        text-align: left;
+        justify-content: space-evenly;
+    }
+
+    .cols>*{
+        max-width: 30em;
+    }
+
+    #back {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+    }
+</style>

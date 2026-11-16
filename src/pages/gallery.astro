@@ -5,95 +5,180 @@ import Signup from "../components/Signup.astro";
 import Websites from "../assets/images/websites.png";
 import Boba from "../assets/images/bobadrops.png";
 import { Image } from "astro:assets";
-const sites = {
-  "toya" : {
-    name: "toya's cute website",
-    href: "https://logabe.github.io/boba-drops/"
+import Model from "../components/gallery/Model.astro";
+
+const projects = {
+  torimon: {
+    name: "torimon",
+    href: "https://codeberg.org/logabe/torimon",
   },
-  "explodenow": {
+  fiiiiih: {
+    name: "Space fish fishing",
+    href: "https://logabe.itch.io/space-fish-fishing",
+  },
+  bnuuy2: {
+    name: "temple",
+    href: "https://meowx4.com",
+  },
+};
+
+const sites = {
+  explodenow: {
     name: "explode NOW!!!",
-    href: "https://yuhqnn.github.io/Explosion-NOW/"
-  }
-}
+    href: "https://yuhqnn.github.io/Explosion-NOW/",
+  },
+  toya: {
+    name: "toya's cute website",
+    href: "https://toya.logabe.net",
+  },
+  aabha: {
+    name: "About me",
+    href: "https://bookworm-png.github.io/About-Me-1",
+  },
+  hackwaikato: {
+    name: "This website!",
+    href: "/",
+  },
+};
 
 const bobasites = {
-  "matchan" : {
+  matchan: {
     name: "Tea Wonderhoy Project",
-    href: "https://youknowmatchan.github.io/teawonderhoy/"
+    href: "https://youknowmatchan.github.io/teawonderhoy/",
   },
-  "stupidfrickenwebsite" : {
+  stupidfrickenwebsite: {
     name: "the great WEBSITE :3",
-    href: "https://yuhqnn.github.io/yippie/index.html"
+    href: "https://yuhqnn.github.io/yippie/index.html",
   },
-  "ratboy" : {
+  ratboy: {
     name: "Ratboy Genius Fanpage",
-    href: "https://imaroboticanthelpit.github.io/boba-drops/"
+    href: "https://imaroboticanthelpit.github.io/boba-drops/",
   },
-  "firstwebsite" : {
+  firstwebsite: {
     name: "first website kinda nervous",
-    href: "https://rqtome.github.io/firstwebsitekindanervous/"
+    href: "https://rqtome.github.io/firstwebsitekindanervous/",
   },
-  "speed" : {
+  speed: {
     name: "I show speed gifs",
-    href: "https://lordluke7621.github.io/Rng-Heaven/"
+    href: "https://lordluke7621.github.io/Rng-Heaven/",
   },
-  "movies" : {
+  movies: {
     name: "Movie and series review website!",
-    href: "https://meowmeowmoemww.github.io/meows/"
+    href: "https://meowmeowmoemww.github.io/meows/",
   },
-  "exploding" : {
+  exploding: {
     name: "exploding",
-    href: "https://rowanross417-cmyk.github.io/MEOWMEOWMEOWMEOW/"
+    href: "https://rowanross417-cmyk.github.io/MEOWMEOWMEOWMEOW/",
   },
-  "pie" : {
+  pie: {
     name: "What do you need for apple pie?",
-    href: "https://emmadilemma24.github.io/boba-drops2/"
+    href: "https://emmadilemma24.github.io/boba-drops2/",
   },
-  "bobadrops" : {
+  bobadrops: {
     name: "dont boba drops",
-    href: "https://timdtam.github.io/boba-drops/"
+    href: "https://timdtam.github.io/boba-drops/",
   },
-  "portfolio" : {
+  portfolio: {
     name: "My totally awesome art portfolio",
-    href: "https://cofii-time.github.io/Boba_Drops_/"
+    href: "https://cofii-time.github.io/Boba_Drops_/",
   },
-  "cool" : {
+  cool: {
     name: "cool",
-    href: "https://jacobiscoool.github.io/cool/"
+    href: "https://jacobiscoool.github.io/cool/",
   },
-  "epic" : {
+  epic: {
     name: "epic site",
-    href: "https://imaroboticanthelpit-me.github.io/boba-drops/neighbor.html"
+    href: "https://imaroboticanthelpit-me.github.io/boba-drops/neighbor.html",
   },
-  "animals" : {
+  animals: {
     name: "Animals!",
-    href: "https://bookworm-png.github.io/Boba-Drops/"
+    href: "https://bookworm-png.github.io/Boba-Drops/",
   },
-}
+};
 ---
 
 <Base title="Gallery" description="Come see what our members are building">
-  <slot name="header"><link rel="stylesheet" href="https://unpkg.com/7.css/dist/gui/window.css"></slot>
-  <a id="back" href="/">← Back to home</a>
-  <div id="websites">
-    <Image src={Websites} alt="Websites" />
-    <!-- Turn the JavaScript object into Astro components -->
-    {Object.entries(sites).map(([k,v]) => (
-      <Website {...v} id={k}></Website>
-    ))}
-    <hr>
+  <slot name="header">
+    <link rel="stylesheet" href="https://unpkg.com/7.css/dist/gui/window.css" />
+  </slot>
+  <svg width="0" height="0" class="block">
+    <filter id="grainy" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".3" numOctaves="2"
+      ></feTurbulence>
+      <feColorMatrix type="saturate" values="0"></feColorMatrix>
+      <feBlend in="SourceGraphic" mode="multiply"></feBlend>
+    </filter>
+  </svg>
+  <a class="back" href="/">← Back to home</a>
+  <header id="intro">
+    <div>
+      <h1>Project Gallery</h1>
+      <p>
+        Hack Clubbers are building awesome projects at every meeting. We're
+        making electronics, websites, tools, art and more! Each of the projects
+        on this page is a real project built by a club member.
+      </p>
+    </div>
+    <div style="display: flex; gap: 1rem;">
+      <!-- Turn the JavaScript object into Astro components -->
+      {Object.entries(projects).map(([k, v]) => <Website {...v} id={k} />)}
+    </div>
+  </header>
+  <section id="hardware">
+    <h2>Hardware and 3D models</h2>
+    <p>
+      Learn how to build hardware projects using real industry tools - circuit
+      boards, CAD, 3D Printing, and more. Through Hack Club, you can also get
+      funding to cover the cost of materials - there's no reason your crazy idea
+      has to stay in your head.
+    </p>
+    <a id="hackpad" href="https://hackpad.hackclub.com/" target="_blank"
+      >Start your first project!</a
+    >
+    <canvas id="c"></canvas>
+    <Model
+      id="badapple"
+      style="right: 5%; top: 12%; height: 88%; aspect-ratio: 1;"
+    />
+    <Model id="quote" style="right: 30%; height: 100%; aspect-ratio: 1;" />
+    <Model id="star" style="right: 1%; height: 40%; aspect-ratio: 1;" />
+    <div class="box" style="left: 52%; bottom: 1em;">
+      <div style="display: block">quote</div>
+      <a href="https://youtube.com/shorts/p4QXuOgkP3A">demo</a>&nbsp;&nbsp;
+      <a href="https://codeberg.org/logabe/quote">files</a>
+    </div>
+    <div class="box" style="left: 75%; bottom: 30%;">
+      3D-printed cookie cutters
+    </div>
+  </section>
+  <section id="websites">
+    <div class="websites">
+      <div id="yap1">
+        <Image src={Websites} alt="Websites" />
+        <p>
+          In the age of social media, Hack Clubbers are reclaiming their space
+          on the internet! Most classes only teach you about HTML & CSS, but we
+          show you how to put your website online so that anyone can see it.
+          Check out some of these sites!
+        </p>
+      </div>
+      <div class="gallery">
+        <!-- Turn the JavaScript object into Astro components -->
+        {Object.entries(sites).map(([k, v]) => <Website {...v} id={k} />)}
+      </div>
+    </div>
+    <hr />
     <div id="yap">
       <Image src={Boba} alt="Boba Drops" />
       <p>
         At our first meeting, we ran a website-making workshop with a sweet
         twist! 14 students used HTML and CSS to make their own unique websites
         and put them online in just 2 hours. There were some incredible sites
-        made despite half the attendees having never coded before.
-        Afterwards we all celebrated our success with free bubble tea :D
+        made despite half the attendees having never coded before. Afterwards we
+        all celebrated our success with free bubble tea :D
       </p>
     </div>
     <div class="window">
-
       <div class="title-bar">
         <div class="title-bar-text">Websites</div>
         <div class="title-bar-controls">
@@ -103,33 +188,109 @@ const bobasites = {
         </div>
       </div>
       <div class="window-body">
-        {Object.entries(bobasites).map(([k,v]) => (
-          <Website {...v} id={k}></Website>
-        ))}
+        <!-- Turn the JavaScript object into Astro components -->
+        {Object.entries(bobasites).map(([k, v]) => <Website {...v} id={k} />)}
       </div>
     </div>
-  </div>
-  <div id="cta">
-    Want to know when we next do something like this? Sign up to get
-    reminders!
+  </section>
+  <section id="cta">
+    Want to build your first project (or fiftieth)? Sign up to get reminded when
+    we start back up!
     <Signup />
-  </div>
-  <a id="back" href="/">← Back to home</a>
+  </section>
+  <a class="back" href="/">← Back to home</a>
 </Base>
 
 <style>
+  :global(body) {
+    overflow-x: clip;
+
+    background-size: 50px 50px;
+    background-image:
+      linear-gradient(to right, #dbe4ee 2px, #0000 1px),
+      linear-gradient(#dbe4ee 2px, #0000 1px);
+  }
+
   * {
     box-sizing: border-box;
   }
-  #back {
+
+  a {
     color: #ec3750;
     font-weight: 600;
-    padding: 1rem;
   }
-  
+
+  .back {
+    padding: 1rem;
+    display: block;
+  }
+
+  header,
+  section {
+    padding: 1em;
+  }
+
+  /* Hardware */
+  #hardware::before {
+    content: "";
+    filter: url(#grainy);
+    mix-blend-mode: multiply;
+    background: radial-gradient(#000000b1, #0000);
+    opacity: 0.4;
+    position: absolute;
+    inset: 0;
+  }
+
+  #hardware {
+    color: #dbe4ee;
+
+    min-height: 30vh;
+    position: relative;
+
+    /* Blueprint background */
+    background-color: #0d2d55;
+    background-size: 50px 50px;
+    background-image:
+      linear-gradient(#ffffff0d 1px, #0000 1px),
+      linear-gradient(90deg, #ffffff0d 1px, #0000 1px);
+
+    :not(div, canvas) {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  #hackpad {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    outline: 2px dashed #ec3750;
+    background-color: #ec374f20;
+  }
+
+  #hackpad:hover {
+    outline: 4px dashed #ec3750;
+    background-color: #ec374f40;
+  }
+
+  #c {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .box {
+    position: absolute;
+    color: black;
+  }
+
+  /* Websites */
+
   #websites {
     --pink1: #f6dade;
-    padding: 1em;
     min-height: 60vh;
     box-sizing: border-box;
     display: flex;
@@ -138,29 +299,19 @@ const bobasites = {
     align-items: center;
 
     background-size: 90px 90px;
-    background-image: linear-gradient(to bottom right, var(--pink1) 32px, transparent 32px),
-                      linear-gradient(to bottom left, var(--pink1) 32px, transparent 32px),
-                      linear-gradient(to top right, var(--pink1) 32px, transparent 32px),
-                      linear-gradient(to top left, var(--pink1) 32px, transparent 32px);
+    background-image:
+      linear-gradient(to bottom right, var(--pink1) 32px, transparent 32px),
+      linear-gradient(to bottom left, var(--pink1) 32px, transparent 32px),
+      linear-gradient(to top right, var(--pink1) 32px, transparent 32px),
+      linear-gradient(to top left, var(--pink1) 32px, transparent 32px);
     background-color: #f2c8cd;
 
     > * {
-
-    width: 80%;
+      width: 80%;
     }
 
     > img {
       width: auto;
-    }
-
-    p{
-      background-color: white;
-      box-shadow: 3px 3px rgba(0, 0, 0, 0.293);
-      padding: 0.5rem;
-
-      text-align: justify;
-
-      box-sizing: border-box;
     }
 
     p::before {
@@ -184,9 +335,34 @@ const bobasites = {
     }
   }
 
-  #yap {
-    width: 80%;
+  #websites p,
+  .box {
+    background-color: white;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.293);
+    padding: 0.5rem;
 
+    text-align: justify;
+
+    box-sizing: border-box;
+  }
+
+  .websites {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+  }
+
+  #yap1 {
+    flex: 1;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+  }
+
+  #yap {
     img {
       max-width: 100%;
       height: auto;
@@ -194,32 +370,33 @@ const bobasites = {
   }
 
   #cta {
-    padding: 1rem;
     max-width: fit-content;
     margin: auto;
-  }
-
-  .window {
-    position: relative;
-    width: 80%;
   }
 
   .window-body {
     display: flex;
     flex-direction: row;
     overflow: scroll;
-    gap: .5em;
-    padding: .5rem;
+    gap: 0.5em;
+    padding: 0.5rem;
   }
 
   @media (max-width: 80rem) {
-    #yap, .window {
+    #websites > * {
       width: 90% !important;
     }
     .window-body {
       flex-wrap: wrap;
       max-height: 75vh;
       justify-content: center;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    #intro {
+      display: flex;
+      gap: 2rem;
     }
   }
 
@@ -235,4 +412,145 @@ const bobasites = {
       }
     }
   }
+
+  @media (min-width: 1000px) {
+    #hardware p {
+      max-width: 50%;
+    }
+  }
 </style>
+
+<script>
+  import {
+    Scene,
+    PerspectiveCamera,
+    WebGLRenderer,
+    MeshPhongMaterial,
+    Mesh,
+    DirectionalLight,
+    AmbientLight,
+  } from "three";
+  import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  import badapple from '../assets/models/badapple.glb?url'
+  import quote from '../assets/models/quote.glb?url'
+  import star from '../assets/models/star.glb?url'
+
+  const models = [
+    {
+      path: badapple,
+      id: "badapple",
+      scale: 0.15,
+      color: "red",
+      rotateX: true,
+    },
+    {
+      path: quote,
+      id: "quote",
+      scale: 20,
+    },
+    {
+      path: star,
+      id: "star",
+      scale: 13,
+      rotateX: true,
+    },
+  ];
+
+  const canvas = document.getElementById("c") as HTMLCanvasElement;
+
+  models.forEach((element) => {
+    element.elem = document.getElementById(element.id)!;
+    const scene = new Scene();
+
+    const camera = new PerspectiveCamera(
+      45,
+      window.innerWidth / canvas!.clientHeight,
+      0.1,
+      5,
+    );
+    camera.position.z = 2.2;
+    scene.add(camera);
+
+    const ambientLight = new AmbientLight(0xfcf4d5, 0.5);
+    scene.add(ambientLight);
+
+    const light = new DirectionalLight(0xffffff, 1);
+    light.position.set(-1, 2, 4);
+    camera.add(light);
+
+    const loader = new GLTFLoader();
+    loader.load(
+      element.path,
+      function (gltf) {
+        const model = gltf.scene;
+
+        if (element.color) {
+          const material = new MeshPhongMaterial({
+            color: element.color,
+            flatShading: true,
+          });
+          model.traverse((obj) => {
+            if (obj instanceof Mesh) obj.material = material;
+          });
+        }
+
+        if (element.rotateX === true) model.rotateX(Math.PI / 2);
+        model.scale.multiplyScalar(element.scale);
+        scene.add(model);
+      },
+      undefined,
+      (error) => console.error(error),
+    );
+
+    const controls = new OrbitControls(camera, element.elem);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1 + Math.random();
+    controls.enablePan = false;
+    controls.enableZoom = false;
+    controls.cursorStyle = "grab";
+
+    element.scene = scene;
+    element.camera = camera;
+    element.controls = controls;
+    element.elem = document.getElementById(element.id)!;
+  });
+
+  const renderer = new WebGLRenderer({
+    alpha: true,
+    canvas,
+    powerPreference: "low-power",
+    antialias: true,
+  });
+  renderer.setSize(window.innerWidth, canvas!.clientHeight);
+  renderer.setAnimationLoop(animate);
+
+  function animate() {
+    renderer.setScissorTest(false);
+    // renderer.clear(true, true);
+    renderer.setScissorTest(true);
+    if (window.innerWidth < 1000) return;
+
+    models.forEach((model) => {
+      const rect = model.elem.getBoundingClientRect();
+      const crect = canvas.getBoundingClientRect();
+      const { left, bottom, width, height } = rect;
+      const positiveYUpBottom = crect.bottom - bottom;
+
+      model.camera.aspect = width / height;
+      model.camera.updateProjectionMatrix();
+      model.controls.update();
+      renderer.setScissor(left, positiveYUpBottom, width, height);
+      renderer.setViewport(left, positiveYUpBottom, width, height);
+      renderer.render(model.scene, model.camera);
+    });
+  }
+
+  window.addEventListener(
+    "resize",
+    () => {
+      renderer.setSize(window.innerWidth, canvas!.clientHeight);
+    },
+    { passive: true },
+  );
+</script>

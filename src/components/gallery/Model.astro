@@ -1,0 +1,16 @@
+---
+
+const {...rest} = Astro.props;
+---
+
+<div {...rest} class="model"></div>
+
+<style>
+    .model {
+        z-index: 1;
+        position: absolute;
+        /* height: 200px;
+        width: 200px; */
+        top: 0;
+    }
+</style>

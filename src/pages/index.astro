@@ -8,15 +8,16 @@ import Slack from "../assets/icons/slack.svg";
 ---
 
 <Layout>
+  <a href="/members" slot="extra" class="topright">Members page</a>
   <Logo />
   <div class="yap">
     <Signup />
     <p>
-      We're running a weekly meetup for teen makers, coders, and artists to
-      build cool stuff, learn new skills, and make new friends.<br />
-      Saturdays 1:30-3:30 @ Hamilton Central Library.
+      We run meetups for teen makers, coders, and artists to
+      build cool stuff, learn, and make new friends.<br />
+      Returning in early 2027.
     </p>
-    <a href="/gallery">Check out what we're building →</a>
+    <a href="/gallery">Check out what we've built →</a>
     <div class="links">
       <a
         href="https://instagram.com/hackwaikato"
@@ -39,6 +40,10 @@ import Slack from "../assets/icons/slack.svg";
 </Layout>
 
 <style>
+
+  :global(body) {
+    font-size: 20px;
+  }
   p {
     background-color: white;
     box-shadow: 3px 3px rgba(0, 0, 0, 0.293);
@@ -52,6 +57,9 @@ import Slack from "../assets/icons/slack.svg";
 
   a {
     color: #ec3750;
+  }
+
+  .yap a {
     font-weight: bold;
     text-align: center;
     text-decoration-thickness: 2px;
@@ -87,5 +95,11 @@ import Slack from "../assets/icons/slack.svg";
 
   .links a:hover * {
     fill: white;
+  }
+
+  .topright {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 </style>
